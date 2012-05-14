@@ -1,0 +1,39 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <vencax77@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-14 15:35+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/registration/login.html:9 templates/registration/login.html:12
+#: templates/registration/login.html:17 templates/registration/loginBox.html:9
+msgid "toLogin"
+msgstr "Přihlásit"
+
+#: templates/registration/login.html:19
+msgid "loginDesc"
+msgstr "Přihlaš se pomocí libovolné služby z níže zobrazených."
+
+#: templates/registration/loginBox.html:4
+msgid "loggedUser"
+msgstr "Přihlášený uživatel"
+
+#: templates/registration/loginBox.html:7
+msgid "toLogoff"
+msgstr "Odhlásit"
+
+#: templates/registration/update.html:4 templates/registration/update.html:7
+#: templates/registration/update.html:11
+msgid "update user"
+msgstr "upravit info o uživateli"

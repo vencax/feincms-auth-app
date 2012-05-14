@@ -1,0 +1,12 @@
+{% load i18n %}
+<ul class="loginBox">
+{% if user.is_authenticated %}
+  <li>{% trans 'loggedUser' %}: <a href="{% url update_profile user.id %}">
+  	{% if user.get_full_name %}{{ user.get_full_name }}{% else %}{{ user.username }}{% endif %}</a>
+  </li>  
+  <li><a href="{% url auth_logout %}">{% trans 'toLogoff' %}</a></li>
+{% else %}
+  <li><a href="{% url auth_login %}">{% trans 'toLogin' %}</a></li>
+{% endif %}
+</ul>
+<br class="clearfix" />
