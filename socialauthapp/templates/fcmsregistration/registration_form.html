@@ -1,0 +1,33 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ desc }}{% endblock %}
+{% block pageTitle %}{{ title }}{% endblock %}
+{% block titleDesc %}{{ desc }}{% endblock %}
+
+{% block content %}
+  <form action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+  	  {% for field in form.visible_fields %}
+      <tr><td>{{ field.label_tag }}:</td><td>{{ field }}</td>
+  	  {% if field.errors %}
+  	  <tr><td colspan="2" class="error">{{ field.errors }}</td></tr>
+  	  {% endif %}
+      <tr><td colspan="2" class="helptext">{{ field.help_text }}<td></tr>
+      {% endfor %}
+	
+	  {% if profile_form %}
+	  {% for field in profile_form.visible_fields %}
+      <tr><td>{{ field.label_tag }}:</td><td>{{ field }}</td>
+  	  {% if field.errors %}
+  	  <tr><td colspan="2" class="error">{{ field.errors }}</td></tr>
+  	  {% endif %}
+      <tr><td colspan="2" class="helptext">{{ field.help_text }}<td></tr>
+      {% endfor %}
+	  {% endif %}
+	</table>
+    <input type="submit" value="OK" />
+  </form>
+{% endblock %}

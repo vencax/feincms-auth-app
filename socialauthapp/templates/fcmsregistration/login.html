@@ -1,0 +1,43 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'toLogin' %}{% endblock %}
+
+{% block breadcrumb %}{{ block.super }}
+<li class="selected">&raquo; {% trans 'toLogin' %}</li>
+{% endblock %}
+
+{% block content %}
+<div id="content">
+	<h2 class="title">{% trans 'toLogin' %}</h2>
+	
+	<p>{% trans "loginDesc" %}</p>
+
+	{{ form.non_field_errors }}
+	<form action="{{ app_path }}" method="post" id="login-form" class="left">
+	  {% csrf_token %}
+	  <table>
+	  {% include "includes/form_snippet.html" %}
+	  </table>
+	  <input type="submit" class="ui-button ui-state-default ui-corner-all" 
+	  	value="{% trans 'Log in' %}" />
+	  <a href="{% url auth_password_reset %}"
+	  	class="ui-button ui-state-default ui-corner-all">{% trans 'Reset password' %}</a>
+	</form>
+
+	<script type="text/javascript">
+	document.getElementById('id_username').focus()
+	</script>
+
+	<ul id="externalAuthProviders" class="horizList">
+	  <li><a href="/social_auth/login/google/" class="googleLogin bigicon"
+	  	alt="Google icon"></a></li>
+	  <li><a href="/social_auth/login/facebook/" class="facebookLogin bigicon"
+	  	alt="Facebook icon"></a></li>
+	  <li><a href="/social_auth/login/openid/?openid_identifier=www.myopenid.com" 
+	  	class="myOpenIDLogin bigicon" alt="MyOpenID icon"></a></li>
+	  <li><a href="/social_auth/login/openid/twitter/" class="twitterLogin bigicon"
+	  	alt="Twitter icon"></a></li>
+	</ul>
+</div>
+{% endblock %}

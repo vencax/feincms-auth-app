@@ -1,0 +1,38 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "update user" %}{% endblock %}
+
+{% block breadcrumbs %}
+<li class="selected">{% trans "update user" %}</li>
+{% endblock %}
+
+{% block content %}
+  <h2>{% trans "update user" %}</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+  	  {% for field in form.visible_fields %}
+      <tr><td>{{ field.label_tag }}:</td><td>{{ field }}</td>
+  	  {% if field.errors %}
+  	  <tr><td colspan="2" class="error">{{ field.errors }}</td></tr>
+  	  {% endif %}
+      <tr><td colspan="2" class="helptext">{{ field.help_text }}<td></tr>
+      {% endfor %}
+	
+	  {% if profile_form %}
+	  {% for field in profile_form.visible_fields %}
+      <tr><td>{{ field.label_tag }}:</td><td>{{ field }}</td>
+  	  {% if field.errors %}
+  	  <tr><td colspan="2" class="error">{{ field.errors }}</td></tr>
+  	  {% endif %}
+      <tr><td colspan="2" class="helptext">{{ field.help_text }}<td></tr>
+      {% endfor %}
+	  {% endif %}
+	</table>
+    <input type="submit" value="{% trans 'Save' %}" 
+    	class="ui-button ui-state-default ui-corner-all" />
+    
+    {{ extra_content }}
+  </form>
+{% endblock %}

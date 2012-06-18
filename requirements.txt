@@ -1,1 +1,2 @@
 django-social-auth
+git+git://github.com/nathanborror/django-registration.git

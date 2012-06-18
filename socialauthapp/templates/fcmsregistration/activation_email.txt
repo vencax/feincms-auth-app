@@ -1,0 +1,9 @@
+{% load i18n %}
+{% trans "Welcome to" %} {{ site }}. 
+
+{% comment %}TODO: remove hardcoded url. {{ site }}{% url registration_activate activation_key %} did not work.{% endcomment %}
+{% trans "Please finish registration on" %}: {{ site }}/accounts/activate/{{ activation_key }}.
+
+{% blocktrans %}
+Your {{ site }} team.
+{% endblocktrans %}

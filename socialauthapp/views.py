@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.views.generic.base import TemplateView
 from django.conf import settings
+from django.contrib import messages
 
 class LoginView(TemplateView):
     template_name = 'registration/login.html'
@@ -22,7 +23,7 @@ class MyUserChangeForm(forms.ModelForm):
         fields = editableFields
 
 class UserUpdateView(UpdateView):
-    template_name = 'registration/update.html'
+    template_name = 'fcmsregistration/update.html'
     model = User
     
     def get_form_class(self):
@@ -38,3 +39,11 @@ class UserUpdateView(UpdateView):
     def form_valid(self, form):
         form.save()
         return HttpResponseRedirect('/')
+
+def addInfoMessage(method, info):
+    def addInfo(request, **kwargs):
+        retval = method(request, **kwargs)
+        if isinstance(retval, HttpResponseRedirect):
+            messages.info(request, info)
+        return retval
+    return addInfo

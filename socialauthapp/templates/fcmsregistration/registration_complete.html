@@ -1,0 +1,11 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Registration form complete" %}{% endblock %}
+
+{% block content %}
+  <h2>{% trans "Registration form complete" %}</h2>
+  <p>
+  {% trans "Activation email was sent to your address. Follow instruction withim to complete registration" %}
+  </p>
+{% endblock %}
