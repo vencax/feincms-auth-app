@@ -1,9 +1,19 @@
 Introduction
 ==============
 
-Django-social-auth-app utilize https://github.com/omab/django-social-auth, 
-add template for login page, user edit page. And packs this up into single
-url conf. So you need not do this setup everytime you build a new page.
+django-social-auth-app utilizes django-registration and
+django-social-auth and handle all user related actions within
+single application. And packs this up into single application.
+So you need not do this setup everytime you build a new page.
+
+Desired actions to be handled:
+	* user login/logout
+	* user detail edit page
+	* forgotten password recreation
+	* registration
+	* optionally use of 3rd party authentication services
+
+NOTE: Intended to use with feincms.
 
 Installation
 ==============

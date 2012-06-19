@@ -5,9 +5,9 @@ import os
 README_PATH = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'README')
 
 description = '''
-django-social-auth-app utilizes django-social-auth and make it easy to
-integrate into existing project. It also solves login and logout.
-Some templates are added.
+django-social-auth-app utilizes django-registration and
+django-social-auth and handle all user related actions within
+single application. Intended to use with feincms.
 '''
 
 if os.path.exists(README_PATH):
