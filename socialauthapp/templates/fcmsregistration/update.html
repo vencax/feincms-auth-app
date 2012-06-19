@@ -7,14 +7,29 @@
 <li class="selected">{% trans "update user" %}</li>
 {% endblock %}
 
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript">
+	$(function(){// Accordion
+		$("#accordion").accordion({ header: "h3" });
+	});
+</script>
+{% endblock %}
+
 {% block content %}
   <h2>{% trans "update user" %}</h2>
-  <form action="" method="post">
+  <form action="." method="post">
     {% csrf_token %}
+    <div id="accordion" class="ui-accordion ui-widget ui-helper-reset ui-accordion-icons">
     {% for name, form in profileform.get_forms %}
-    {% include "includes/form_snippet.html" %}
+    	<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
+    		<span class="ui-icon ui-icon-triangle-1-e"></span>
+    		<a href="#">{{ name }}</a>
+    	</h3>
+    	<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
+    		{% include "includes/form_snippet.html" %}
+    	</div>
     {% endfor %}
-	</table>
+	</div>
     <input type="submit" value="{% trans 'Save' %}" 
     	class="ui-button ui-state-default ui-corner-all" />
     
