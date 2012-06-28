@@ -1,5 +1,5 @@
 {% load i18n %}
-<ul class="loginBox">
+<ul class="loginBox horizList">
 {% if user.is_authenticated %}
   <li>{% trans 'loggedUser' %}: <a href="{% url update_profile user.id %}">
   	{% if user.get_full_name %}{{ user.get_full_name }}{% else %}{{ user.username }}{% endif %}</a>
